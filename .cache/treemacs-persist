@@ -1,0 +1,5 @@
+* Default
+** myflutterapp
+ - path :: ~/flutterProject/myflutterapp
+** .emacs.d
+ - path :: ~/.emacs.d
