@@ -1,0 +1,1 @@
+("~/flutterProject/myflutterapp/" "~/.emacs.d/")

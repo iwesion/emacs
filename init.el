@@ -14,6 +14,7 @@
 (require 'init-elpa);;修改镜像
 (require 'init-package);;添加package管理工具（各种package）
 (require 'init-ui);;修改界面（主题）
+(require 'init-projectile);;https://docs.projectile.mx/projectile/installation.html
 (require 'init-programming);;添加编程语言
 (require 'init-tools);;添加工具类（有道翻译）
 (require 'init-documents);;添加加载模式扩展插件

@@ -74,7 +74,12 @@
 (use-package lsp-dart
   :ensure t
   :hook (dart-mode . lsp)
-  :init (setq lsp-dart-sdk-dir "/Users/wesion/flutter/bin/cache/dart-sdk"
+  :init
+  (with-eval-after-load 'projectile
+    (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+    (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+  :config
+  (setq lsp-dart-sdk-dir "/Users/wesion/flutter/bin/cache/dart-sdk"
 	      lsp-dart-flutter-sdk-dir "/Users/wesion/flutter"
 	      ;;lsp-dart-flutter-executable flutter;;Flutter 可执行文件名称。
 	      lsp-dart-enable-sdk-formatter t;;是否启用服务器格式化。
@@ -134,9 +139,16 @@
               lsp-ui-sideline-show-code-actions t;; 在边线中显示代码操作
               lsp-ui-sideline-show-diagnostics t;;在边线中显示诊断消息
               lsp-ui-sideline-ignore-duplicate t
-              lsp-headerline-breadcrumb-enable t)
+              lsp-headerline-breadcrumb-enable t
+	      lsp-ui-imenu-enable t;是否启用'lsp-ui-imenu
+	      lsp-ui-imenu-kind-position 'left;;在哪里显示条目种类
+	      lsp-ui-imenu-window-width 200;;设置窗口宽度
+	      lsp-ui-imenu--custom-mode-line-format t;;
+	      lsp-ui-imenu-auto-refresh t;必要时自动刷新
+	      lsp-ui-imenu-refresh-delay .3;延迟刷新imeu
+	      )
   :config
-  (setq lsp-ui-flycheck-enable nil)
+ ;; (setq lsp-ui-flycheck-enable nil)
   (treemacs-resize-icons 14))
 
 ;; 如果你使用的是helm插件 if you are helm user
