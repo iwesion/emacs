@@ -69,6 +69,30 @@
               lsp-modeline-diagnostics-enable t
               lsp-idle-delay 0.500
               lsp-completion-provider :capf))
+
+;;设置lsp-dart
+(use-package lsp-dart
+  :ensure t
+  :hook (dart-mode . lsp)
+  :init (setq lsp-dart-sdk-dir "/Users/wesion/flutter/bin/cache/dart-sdk"
+	      lsp-dart-flutter-sdk-dir "/Users/wesion/flutter"
+	      ;;lsp-dart-flutter-executable flutter;;Flutter 可执行文件名称。
+	      lsp-dart-enable-sdk-formatter t;;是否启用服务器格式化。
+	      lsp-dart-complete-function-calls t;;完成具有所需参数的函数/方法。
+	      lsp-dart-outline t;;在服务器 lsp 上启用大纲树视图功能
+	      lsp-dart-outline-position-params "Left side";;大纲树位置参数。
+	      lsp-dart-closing-labels t;;在服务器 lsp 上启用关闭标签功能
+	      lsp-dart-flutter-outline t;;是否开启服务端 lsp 的 Flutter 大纲树视图功能
+	      lsp-dart-flutter-fringe-colors t;;在边缘启用 Flutter 颜色。
+	      lsp-dart-flutter-outline-position-params "Left side";;Flutter 轮廓树位置参数
+	      lsp-dart-flutter-widget-guides t;;启用从父小部件到子小部件的 Flutter 小部件指南
+	      lsp-dart-main-code-lens t;;Run\|Debug在主要方法上启用代码镜头。
+	      lsp-dart-test-code-lens t;;Run\|Debug在测试中启用代码镜头。
+	      lsp-dart-devtools-theme "dart";;通过打开时的 devtools 主题 lsp-dart-dap-open-devtools
+	      lsp-dart-devtools-hide-options debugger;;通过以下方式打开 DevTools 时要隐藏的内容 lsp-dart-dap-open-devtools
+	      ))
+
+
 ;; Assuming usage with dart-mode
 (use-package dart-mode
   :hook
@@ -81,7 +105,7 @@
   :bind (:map dart-mode-map
               ("C-M-x" . #'flutter-run-or-hot-reload))
   :custom
-  (flutter-sdk-path "/Applications/flutter/"))
+  (flutter-sdk-path "/Users/wesion/flutter/"))
 
 ;;添加swift支持
 (use-package lsp-sourcekit
